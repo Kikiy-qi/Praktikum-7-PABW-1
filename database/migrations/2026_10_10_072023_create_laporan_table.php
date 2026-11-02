@@ -11,9 +11,13 @@ return new class extends Migration
         Schema::create('laporan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pelapor');
+            $table->string('no_hp');
             $table->string('lokasi');
-            $table->integer('tinggi_genangan');
-            $table->date('tanggal_kejadian');
+            $table->string('kecamatan');
+            $table->integer('tinggi_air');
+            $table->text('keterangan');
+            $table->string('foto');
+            $table->string('status')->default('Menunggu');
             $table->timestamps();
         });
     }

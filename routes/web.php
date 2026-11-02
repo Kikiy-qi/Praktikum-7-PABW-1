@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DataController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
-Route::get('/', [DataController::class, 'form'])->name('form');
-Route::post('/proses', [DataController::class, 'proses'])->name('proses');
+Route::get('/', [LaporanController::class, 'create'])->name('form');
+Route::post('/lapor', [LaporanController::class, 'store'])->name('lapor.store');
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
@@ -18,6 +18,6 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
-    Route::get('/daftar', [DataController::class, 'daftar'])->name('daftar');
+    Route::resource('laporan', LaporanController::class)->except(['create', 'store']);
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-});
+});     

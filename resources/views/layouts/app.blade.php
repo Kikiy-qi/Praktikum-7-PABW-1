@@ -14,7 +14,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ route('form') }}">Form Pelaporan</a></li>
                     @auth
-                        <li class="nav-item"><a class="nav-link" href="{{ route('daftar') }}">Daftar Laporan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('laporan.index') }}">Daftar Laporan</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('profile') }}">Profil Petugas</a></li>
                     @endauth
                 </ul>
